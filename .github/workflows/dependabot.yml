@@ -10,9 +10,8 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - continue-on-error: true
-        if: ${{ 49699333 == github.actor_id }}
+        if: ${{ github.actor == 'dependabot[bot]' }}
         run: |
-          exit 1
           gh pr merge 
       - uses: dependabot/fetch-metadata@1
       - continue-on-error: true
