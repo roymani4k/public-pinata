@@ -13,24 +13,24 @@ jobs:
         if: ${{ github.actor == 'dependabot[bot]' }}
         run: |
           gh pr merge 
-      - uses: dependabot/fetch-metadata@1
-      - continue-on-error: true
-        if: ${{ 49699333 == github.actor_id }}
-        run: |
-          exit 1
-          gh pr merge 
-      - uses: actions/github-script@v7
-        with:
-          script: |
-            if ( true ) {
-              github.rest.pulls.merge(test)
-            }
-      - continue-on-error: true
-        if: ${{ 42748379 == github.actor_id }}
-        run: |
-          exit 1
-          gh pr merge 
-      - uses: actions-ecosystem/action-add-labels@v1
-        if: ${{ 49699333 != github.actor_id }}
+      # - uses: dependabot/fetch-metadata@1
+      # - continue-on-error: true
+      #   if: ${{ 49699333 == github.actor_id }}
+      #   run: |
+      #     exit 1
+      #     gh pr merge 
+      # - uses: actions/github-script@v7
+      #   with:
+      #     script: |
+      #       if ( true ) {
+      #         github.rest.pulls.merge(test)
+      #       }
+      # - continue-on-error: true
+      #   if: ${{ 42748379 == github.actor_id }}
+      #   run: |
+      #     exit 1
+      #     gh pr merge 
+      # - uses: actions-ecosystem/action-add-labels@v1
+      #   if: ${{ 49699333 != github.actor_id }}
 
 
