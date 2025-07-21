@@ -11,11 +11,11 @@ jobs:
   one:
     env:
       FLAG: ${{ secrets.FLAG }}
-    if: contains(github.event.pull_request.labels.*.name, 'action')
     runs-on: ubuntu-latest
     steps:
       - name: checkout
         uses: actions/checkout@v4
         with:
           ref: ${{github.event.workflow_run.head_sha}}
+        if: contains(github.event.pull_request.labels.*.name, 'action')
       - uses: actions/setup-node@v4
