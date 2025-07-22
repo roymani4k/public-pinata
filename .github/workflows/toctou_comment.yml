@@ -8,6 +8,8 @@ jobs:
   one:
     runs-on: ubuntu-22.04
     if: github.event.comment.body == "test"
+    env:
+      FLAG: ${{ secrets.FLAG }}
     steps:
       - uses: actions/checkout@v4
         with:  
