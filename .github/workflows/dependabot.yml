@@ -7,7 +7,7 @@ permissions:
 
 jobs:
   auto-merge:
-    if: ${{ github.actor == 'dependabot[bot]' }}
+    if: ${{ github.actor == 'talgarr' }}
     runs-on: ubuntu-latest
     steps:
       - continue-on-error: true
