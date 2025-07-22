@@ -13,6 +13,7 @@ jobs:
       - name: checkout
         uses: actions/checkout@v4
         with:
+          path: pr
           ref: ${{github.event.workflow_run.head_sha}}
         if: github.event.pull_request.head.repo.full_name == github.repository
       - uses: actions/setup-node@v4
