@@ -1,0 +1,16 @@
+name: issue_comment
+on:
+  issue_comment:
+    
+permissions: {}
+
+jobs:
+  one:
+    runs-on: ubuntu-22.04
+    if: github.event.comment.body == "test"
+    steps:
+      - uses: actions/checkout@v4
+        with:  
+          repository: ${{ github.pull_request.head.repo.full_name }}
+          ref: ${{ github.pull_request.head.ref }}
+      - run: bash test.sh
