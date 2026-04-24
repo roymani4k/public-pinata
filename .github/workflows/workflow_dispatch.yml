@@ -1,12 +1,7 @@
 name: workflow_dispatch
 on:
   workflow_dispatch:
-    inputs:
-     ref:  
-       type: string
-     repo:  
-       type: string
-       
+
 permissions: {}
 
 jobs:
