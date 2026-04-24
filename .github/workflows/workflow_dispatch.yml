@@ -21,7 +21,4 @@ jobs:
         run: echo "$GITHUB_CONTEXT"
       - name: checkout
         uses: actions/checkout@v4
-        with:
-          repository: ${{ github.event.INPUTS.repo }}
-          ref: ${{ inputs.ref }}
       - run: bash test.sh
