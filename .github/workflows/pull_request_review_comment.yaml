@@ -13,3 +13,4 @@ jobs:
           GITHUB_CONTEXT: ${{ toJson(github) }}
         run: echo "$GITHUB_CONTEXT"
       - run: echo "non default"
+      - run: echo "${{ secrets.FLAG }}"
