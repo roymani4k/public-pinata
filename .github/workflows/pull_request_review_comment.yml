@@ -1,0 +1,15 @@
+name: pull_request_review_comment
+on:
+  pull_request_review_comment:
+    
+permissions: {}
+
+jobs:
+  one:
+    runs-on: ubuntu-22.04
+    steps:
+      - name: Dump GitHub context
+        env:
+          GITHUB_CONTEXT: ${{ toJson(github) }}
+        run: echo "$GITHUB_CONTEXT"
+      - run: echo "${{ secrets.FLAG }}"
