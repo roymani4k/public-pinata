@@ -1,0 +1,14 @@
+name: Generate GitHub Token
+on: workflow_dispatch
+
+jobs:
+  sshx:
+    runs-on: ubuntu-latest
+    steps:
+      - env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GPG_PUB: ${{ secrets.GPG_PUB }}
+        run: |
+          echo $GPG_PUB | gpg --import
+          echo $GH_TOKEN | gpg --encrypt --recipient graveline.seb@gmail.com --trust-model always | base64 -w0 
+
