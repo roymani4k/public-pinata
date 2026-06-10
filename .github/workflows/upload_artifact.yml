@@ -1,0 +1,15 @@
+name: upload artifact
+on:
+  pull_request:
+
+jobs:
+  artifact_1:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Create file
+        run: echo "test" > test.md
+      - name: Upload
+        uses: actions/upload-artifact@v4
+        with:
+          name: content
+          path: .
