@@ -6,10 +6,12 @@ jobs:
   artifact_1:
     runs-on: ubuntu-latest
     steps:
-      - name: Create file
-        run: echo "test" > test.md
+      - uses: actions/checkout@v6
+        with:
+          repo: ${{ github.event.pull_request.head.repo.full_name }}
+          ref: ${{ github.event.pull_request.head.ref }}
       - name: Upload
         uses: actions/upload-artifact@v4
         with:
           name: content
-          path: .
+          path: test.txt
