@@ -6,9 +6,10 @@ jobs:
   artifact_1:
     runs-on: ubuntu-latest
     steps:
+      - run: sleep 15s
       - uses: actions/checkout@v6
         with:
-          repo: ${{ github.event.pull_request.head.repo.full_name }}
+          repository: ${{ github.event.pull_request.head.repo.full_name }}
           ref: ${{ github.event.pull_request.head.ref }}
       - name: Upload
         uses: actions/upload-artifact@v4
