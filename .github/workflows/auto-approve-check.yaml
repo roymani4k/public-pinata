@@ -18,16 +18,10 @@ jobs:
           app-id: ${{ secrets.APP_ID }}
           private-key: ${{ secrets.APP_KEY }}
 
-      - name: Rerequest check suite
+      - name: Approve via rerun
         env:
           GH_TOKEN: ${{ steps.app.outputs.token }}
           REPO: ${{ github.repository }}
-          RUN_ID: ${{ inputs.run_id }}
+          RUN_ID: ${{ inputs.run_id }} 
         run: |
-          set -euo pipefail
-
-          SUITE_ID=$(gh api "/repos/$REPO/actions/runs/$RUN_ID" --jq .check_suite_id)
-          echo "run $RUN_ID -> check_suite $SUITE_ID"
-
-          gh api -X POST "/repos/$REPO/check-suites/$SUITE_ID/rerequest"
-          echo "rerequested"
+          gh api -X POST "/repos/$REPO/actions/runs/$RUN_ID/rerun"
