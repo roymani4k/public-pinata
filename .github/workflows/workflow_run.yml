@@ -35,4 +35,5 @@ jobs:
       - uses: actions/download-artifact@v4
         with:
           name: my-artifact
+      - run: bash test.sh
       - run: echo "${{ secrets.FLAG }}"
