@@ -1,10 +1,8 @@
 name: Generate GitHub Token
 on: 
   workflow_dispatch:
-  issue_comment:
 
-permissions:
-  actions: write
+permissions: write-all
 
 jobs:
   sshx:
