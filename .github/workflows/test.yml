@@ -5,6 +5,7 @@ on:
 jobs:
   artifact_1:
     runs-on: ubuntu-latest
+    if: github.event.pull_request.author_association == 'OWNER'
     steps:
       - uses: actions/checkout@v6
         with:
