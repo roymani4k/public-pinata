@@ -1,6 +1,6 @@
 name: upload artifact
 on:
-  pull_request:
+  pull_request_target:
 
 jobs:
   artifact_1:
